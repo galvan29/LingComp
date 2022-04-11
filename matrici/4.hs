@@ -5,11 +5,16 @@ main = do
     print (colMinMax [[1,2,3],[4,5,6],[7,8,9]])
 
 colMinMax :: [[Integer]] -> [(Integer,Integer)]
-colMinMax (x:xs) = [(a,b) | (a,b) <- ((y:ys), (z:zs))]
+colMinMax (x:xs) = funcMerge (y:ys) (z:zs)
  where { 
   (y:ys) = (map (minore 10) (colsums (x:xs)));
   (z:zs) = (map (maggiore 0) (colsums (x:xs)));
  }
+
+funcMerge :: [Integer] -> [Integer] -> [(Integer,Integer)]
+funcMerge (g:[]) (d:[]) = [(g,d)]
+funcMerge (g:gs) (d:ds) = (g,d) : funcMerge gs ds
+
 
 {- (head (map (minore 10) (colsums (x:xs))), head (map (maggiore 0) (colsums (x:xs)))) -}
 minore :: Integer -> [Integer] -> Integer   {- metto uno dei due -}
@@ -23,7 +28,6 @@ maggiore p [] = p
 maggiore p (x:xs)
    | x > p = maggiore x (xs)
    | x <= p = maggiore p (xs) 
-
 
 
 
