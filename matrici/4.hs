@@ -29,9 +29,6 @@ maggiore p (x:xs)
    | x > p = maggiore x (xs)
    | x <= p = maggiore p (xs) 
 
-
-
-
 colsums :: [[Integer]] -> [[Integer]]
 colsums ([]:_) = []
 colsums (x:xs) = work (x:xs) : (colsums (map tail (x:xs)))
