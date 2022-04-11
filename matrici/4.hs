@@ -5,7 +5,12 @@ main = do
     print (colMinMax [[1,2,3],[4,5,6],[7,8,9]])
 
 colMinMax :: [[Integer]] -> [(Integer,Integer)]
-colMinMax (x:xs) = ((map (minore 10) (colsums (x:xs))), (map (maggiore 0) (colsums (x:xs))))
+colMinMax (x:xs) = [(a,b) | a <- (y:ys), b <- (z:zs)]
+ where { 
+  (y:ys) = (map (minore 10) (colsums (x:xs)));
+  (z:zs) = (map (maggiore 0) (colsums (x:xs)));
+ }
+
 {- (head (map (minore 10) (colsums (x:xs))), head (map (maggiore 0) (colsums (x:xs)))) -}
 minore :: Integer -> [Integer] -> Integer   {- metto uno dei due -}
 minore p [] = p
