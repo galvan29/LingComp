@@ -5,7 +5,7 @@ main = do
     print (colMinMax [[1,2,3],[4,5,6],[7,8,9]])
 
 colMinMax :: [[Integer]] -> [(Integer,Integer)]
-colMinMax (x:xs) = [(a,b) | a <- (y:ys), b <- (z:zs)]
+colMinMax (x:xs) = [(a,b) | (a,b) <- ((y:ys), (z:zs))]
  where { 
   (y:ys) = (map (minore 10) (colsums (x:xs)));
   (z:zs) = (map (maggiore 0) (colsums (x:xs)));
