@@ -7,3 +7,4 @@ colsums :: [[Integer]] -> [Integer]
 colsums (x:xs) = let (f:fs) = (changeCol (x:xs)) in (sum f:fs)
 
 changeCol ::  [[Integer]] -> [[Integer]]
+
