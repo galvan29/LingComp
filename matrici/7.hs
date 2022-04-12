@@ -8,8 +8,8 @@ main = do
 diagonal :: [[Integer]] -> Bool
 diagonal (x:xs) = if ((a==True) && (b==True)) then True else False
  where {
-    a = lovertriangular (x:xs)
-    b = lovertriangular (colsums (x:xs))
+    a = lovertriangular (x:xs);
+    b = lovertriangular (colsums (x:xs));
  }
  
 
