@@ -9,4 +9,4 @@ convergent (x:xs) r = checkSum (x:xs) r
  
 checkSum :: [[Integer]] -> Integer -> Bool
 checkSum [] r = True
-checkSum (x:xs) r = if (foldl (\z y -> if (abs (sum x)) < r then 0 else 1) 0 (xs)) == 0 then (checkSum (xs) r) else False
+checkSum (x:xs) r = if (foldl (\z y -> if (abs (sum  [ g * g | g <- x)) < r then 0 else 1) 0 (xs)) == 0 then (checkSum (xs) r) else False
