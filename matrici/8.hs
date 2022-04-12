@@ -4,5 +4,5 @@ main = do
     
 convergent :: [[Integer]] -> Integer -> Bool
 convergent [] r = True
-convergent (x:xs) r = if (foldl (\z y -> if (sum h) > r then 0 else 1) 0 (xs)) == 0 then convergent (xs) else False
+convergent (x:xs) r = if (foldl (\z y -> if (sum h) > r then 0 else 1) 0 (xs)) == 0 then (convergent (xs) r) else False
  
