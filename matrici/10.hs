@@ -1,5 +1,6 @@
 main = do
    print (isSymmetric [[1,2,3],[1,2,3],[1,2,3]])
+   print (isSymmetric [[1,2,3],[2,5,4],[3,4,8]])
 
 isSymmetric :: [[Integer]] -> Bool
 isSymmetric (x:xs) = ciao (x:xs) (colsums (x:xs))
