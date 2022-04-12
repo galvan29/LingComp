@@ -1,2 +1,2 @@
 main = do
-    print ("ciao")
+    print ()
