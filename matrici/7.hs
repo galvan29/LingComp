@@ -1,2 +1,5 @@
+{- Si scriva un predicato diagonal che dica se una matrice è diagonale -}
+{- Una matrice diagonale è una matrice in cui sono presenti numeri solamente nella parte diagonale da sinistra-alto fino a sinistra basso -}
+
 main = do
-    print ()
+    print (diagonal [[1,2,3],[4,5,6],[7,8,9]])
