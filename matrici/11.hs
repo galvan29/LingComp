@@ -10,7 +10,7 @@ b (x:xs) (y:ys) = c x (y:ys) : b xs (y:ys)
 
 c :: [Integer] -> [[Integer]] -> [Integer]
 c (x:xs) [] = []
-c (x:xs) (y:ys) = (somma x y) : c (x:xs) ys
+c (x:xs) (y:ys) = (somma (x:xs) y) : c (x:xs) ys
 
 somma :: [Integer] -> [Integer] -> Integer
 somma (x:[]) (y:[]) = x + y
