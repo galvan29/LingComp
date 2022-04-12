@@ -6,11 +6,11 @@ moltipl x y = b x (colsums y)
 
 b :: [[Integer]] -> [[Integer]] -> [[Integer]]
 b [] y = []
-b (x:xs) (y:ys) = c x y : b xs y
+b (x:xs) y = c x y : b xs y
 
 c :: [Integer] -> [[Integer]] -> [Integer]
-c (x:xs) [] = []
-c (x:xs) (y:ys) = (somma x y) : c x ys
+c x [] = []
+c x (y:ys) = (somma x y) : c x ys
 
 somma :: [Integer] -> [Integer] -> Integer
 somma (x:[]) (y:[]) = x * y
@@ -18,7 +18,7 @@ somma (x:xs) (y:ys) = x*y + somma xs ys
 
 colsums :: [[Integer]] -> [[Integer]]
 colsums ([]:_) = []
-colsums x = work x : (colsums (map tail x)
+colsums x = work x : (colsums (map tail x))
 
 work :: [[Integer]] -> [Integer]
 work [] = []
