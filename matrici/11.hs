@@ -16,8 +16,6 @@ somma :: [Integer] -> [Integer] -> Integer
 somma (x:[]) (y:[]) = x + y
 somma (x:xs) y = x*y + somma xs ys
 
-
-
 colsums :: [[Integer]] -> [[Integer]]
 colsums ([]:_) = []
 colsums (x:xs) = work (x:xs) : (colsums (map tail (x:xs)))
