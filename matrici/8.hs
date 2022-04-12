@@ -4,8 +4,8 @@ main = do
     print (mainDiagonal [[1,2,3],[4,5,6],[7,8,9]])
 {-    print ((sum (h * h | h <- [1,2,3])))   -}
     
-convergent :: [[Double]] -> Double -> Bool
-convergent (x:xs) r = checkSum (x:xs) r
+convergent :: [[Double]] -> Double -> [[Double]] -> Bool
+convergent (x:xs) r = checkSum (x:xs) r (mainDiagonal (x:xs))
  
 checkSum :: [[Double]] -> Double -> Bool
 checkSum [] r = True
