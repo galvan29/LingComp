@@ -8,8 +8,8 @@ convergent :: [[Double]] -> Double -> [[Double]] -> Bool
 convergent (x:xs) r = checkSum (x:xs) r (mainDiagonal (x:xs))
  
 checkSum :: [[Double]] -> Double -> Bool
-checkSum [] r = True
-checkSum (x:xs) r = if (foldl (\z y -> if (sqrt (sum  [ g * g | g <- y])) < r && z==0 then 0 else 1) 0 (x:xs)) == 0 then True else False
+checkSum [] r [] = True
+checkSum (x:xs) r (h:hs) = if (sqrt ((sum  [ g * g | g <- x])) - (h*h)) < r then checkSum xs r hs else False
 
 
 mainDiagonal xs = zipWith (!!) xs [0..]
