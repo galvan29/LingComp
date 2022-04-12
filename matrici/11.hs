@@ -1,5 +1,6 @@
 main = do
     print (moltipl [[1,0,1],[2,3,4]] [[1,2],[4,1],[0,1]])
+    print (somma [1,0,1] [1,4,0])
     
 moltipl :: [[Integer]] -> [[Integer]] -> [[Integer]]
 moltipl (x:xs) (y:ys) = b (x:xs) (colsums (y:ys))
@@ -13,7 +14,7 @@ c (x:xs) [] = []
 c (x:xs) (y:ys) = (somma (x:xs) y) : c (x:xs) ys
 
 somma :: [Integer] -> [Integer] -> Integer
-somma (x:[]) (y:[]) = x + y
+somma (x:[]) (y:[]) = x * y
 somma (x:xs) (y:ys) = x*y + somma xs ys
 
 colsums :: [[Integer]] -> [[Integer]]
