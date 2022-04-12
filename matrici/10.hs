@@ -8,7 +8,6 @@ ciao :: [[Integer]] -> [[Integer]] -> Bool
 ciao [] [] = True
 ciao (x:xs) (y:ys) = if ( x == y ) == True then ciao (xs) (ys) else False
 
-
 colsums :: [[Integer]] -> [[Integer]]
 colsums ([]:_) = []
 colsums (x:xs) = work (x:xs) : (colsums (map tail (x:xs)))
