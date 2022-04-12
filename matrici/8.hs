@@ -7,7 +7,7 @@ main = do
 convergent :: [[Double]] -> Double -> Bool
 convergent (x:xs) r = checkSum (x:xs) r (mainDiagonal (x:xs))
  
-checkSum :: [[Double]] -> Double -> [[Double]] -> Bool
+checkSum :: [[Double]] -> Double -> [Double] -> Bool
 checkSum [] r [] = True
 checkSum (x:xs) r (h:hs) = if (sqrt ((sum  [ g * g | g <- x])) - (h*h)) < r then checkSum xs r hs else False
 
