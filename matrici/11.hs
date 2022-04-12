@@ -14,7 +14,7 @@ c (x:xs) (y:ys) = (somma x y) : c (x:xs) ys
 
 somma :: [Integer] -> [Integer] -> Integer
 somma (x:[]) (y:[]) = x + y
-somma (x:xs) y = x*y + somma xs ys
+somma (x:xs) (y:ys) = x*y + somma xs ys
 
 colsums :: [[Integer]] -> [[Integer]]
 colsums ([]:_) = []
