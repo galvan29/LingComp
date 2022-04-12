@@ -9,9 +9,18 @@ diagonal :: [[Integer]] -> Bool
 diagonal (x:xs) = if ((a==True) && (b==True)) then True else False
  where {
     a = lovertriangular (x:xs)
-    b = 
+    b = lovertriangular (colsums (x:xs))
  }
  
 
 lovertriangular [] = True
 lovertriangular (x:xs) = if (foldl (\z y->if z==y then 0 else 1) 0 (tail x))==0 then lovertriangular (map tail xs) else False
+
+ 
+colsums :: [[Integer]] -> [[Integer]] 
+colsums ([]:_) = [] 
+colsums (x:xs) = work (x:xs) : (colsums (map tail (x:xs))) 
+
+work :: [[Integer]]-> [Integer] 
+work [] = [] 
+work (x:xs) = let (f:fs) = x in f : work xs
