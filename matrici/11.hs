@@ -1,6 +1,5 @@
 main = do
     print (moltipl [[1,0,1],[2,3,4]] [[1,2],[4,1],[0,1]])
-    print (somma [1,0,1] [1,4,0])
     
 moltipl :: [[Integer]] -> [[Integer]] -> [[Integer]]
 moltipl (x:xs) (y:ys) = b (x:xs) (colsums (y:ys))
