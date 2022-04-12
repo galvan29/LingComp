@@ -1,7 +1,7 @@
 main = do
     print (convergent [[1,2,3],[4,5,6],[7,8,9]] 30)
     print (convergent [[1,2,3],[4,5,6],[7,8,9]] 15)
-    print ( (abs (sum ( g * g | g <- [1,2,3]))))
+    print ( (abs (sum (g * g | g <- [1,2,3]))))
     
 convergent :: [[Integer]] -> Integer -> Bool
 convergent (x:xs) r = checkSum (x:xs) r
