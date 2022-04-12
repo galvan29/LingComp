@@ -5,7 +5,7 @@ moltipl :: [[Integer]] -> [[Integer]] -> [[Integer]]
 moltipl (x:xs) (y:ys) = b (x:xs) (colsums (y:ys))
 
 b :: [[Integer]] -> [[Integer]] -> [[Integer]]
-b [] [] = []
+b [] (y:ys) = []
 b (x:xs) (y:ys) = c x (y:ys) : b xs (y:ys)
 
 c :: [Integer] -> [[Integer]] -> [Integer]
