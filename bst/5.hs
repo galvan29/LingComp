@@ -9,3 +9,10 @@ insert (Node x l r) v
    | x == v = Node x l r
    | x < v = Node x l (insert r v)
    | x > v = Node x (insert l v) r
+
+
+
+
+
+
+
