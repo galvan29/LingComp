@@ -6,7 +6,8 @@ data BST a = Void | Node { val :: a, left, right :: BST a } deriving (Eq, Ord, R
 
 main = do
    print (almostBalanced (Node 10 (Node 5 Void Void) (Node 15 Void Void)))
-
+   print (conta 0 (Node 10 (Node 5 Void Void) (Node 15 Void Void)))
+   
 almostBalanced :: (Num a, Ord a) => BST a -> Bool
 almostBalanced Void = True
 almostBalanced (Node x l r) = if ((c-d) == -1 || (c-d) == 1 || (c-d) == 0) then (a && b) else False
