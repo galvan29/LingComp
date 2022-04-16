@@ -42,4 +42,4 @@ minOdd2 (x:xs) = let (f:fs) = qs (a2 (x:xs)) in (f,head fs)
 a2 [] = []
 a2 (x:xs) 
   | mod x 2 /= 0 = a2 xs ++ [x]
-  | mod x 2 == 0 = a2 xs
+  | mod x 2 == 0 = a2 xs 
