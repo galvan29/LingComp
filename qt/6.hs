@@ -8,15 +8,12 @@ occurrencies :: (Eq a, Num a, Ord a, Integral a) => QT a -> a -> a
 occurrencies (Q a b c d) v = occurrencies2 (Q a b c d) v ((howManyPixels (Q a b c d)))
 
 occurrencies2 :: (Eq a, Num a, Ord a, Integral a) => QT a -> a -> a -> a
-occurrencies2 (C k) v liv = if(k == v) then 4 else 0
-occurrencies2 (Q a b c d) v liv = (occurrencies2 a v liv-1) + (occurrencies2 b v liv-1) + (occurrencies2 c v liv-1) + (occurrencies2 d v liv-1)
-
-
-
+occurrencies2 (C k) v liv = if(k == v) then 4^(liv) else 0
+occurrencies2 (Q a b c d) v liv = (occurrencies2 a v (liv-1)) + (occurrencies2 b v (liv-1)) + (occurrencies2 c v (liv-1)) + (occurrencies2 d v (liv-1))
 
 howManyPixels :: (Integral a, Num a, Ord a, Eq a) => QT a -> a
 howManyPixels (C r) = 1
-howManyPixels (Q d e f g) = 4^(work-1)
+howManyPixels (Q d e f g) = work
  where {
      work = fromIntegral (max2 [(howManyPixels2 d), (howManyPixels2 e), (howManyPixels2 f), (howManyPixels2 g)]);
  }
