@@ -11,7 +11,10 @@ main = do
    print (isBST (Node 10 (Node 5 (Node 4 Void Void) (Node 6 Void (Node 7 Void Void))) (Node 15 Void Void)))
    print (isBST (Node 10 (Node 5 (Node 66 Void Void) (Node 6 Void (Node 7 Void Void))) (Node 15 Void Void)))
 
-isBST :: (Ord a, Num a, Eq a, Show a) => BST a -> [a]
-isBST Void = []
-isBST tree = fold (\x y z -> y ++ [x] ++ z) [] tree
+isBST :: (Ord a, Num a, Eq a, Show a) => BST a -> Bool
+isBST Void = True
+isBST tree = check (fold (\x y z -> y ++ [x] ++ z) [] tree)
 
+check :: (Ord a) => [a] -> Bool
+check (x:[]) = True
+check (x:y:xs) = if(x<y) then check (y:xs) else False
