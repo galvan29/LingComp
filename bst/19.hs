@@ -4,6 +4,10 @@ Bal = Left | Bal | Right deriving (Eq, Ord, Read, Show) determina se è ben form
 cioè se • la differenza fra le profondità dei sottoalberi destro e sinistro di un 
 qualunque nodo è al massimo 1; • le etichette Bal dei nodi sono consistenti con lo (s)bilanciamento. -}
 
+Funziona ma manca un caso base penso
+Check anche etichette in realtà ma sono degli if
+
+
 data ABST a = Void | Node Bal a (ABST a) (ABST a) deriving (Eq, Ord, Read, Show) 
 data Bal = Left | Bal | Right deriving (Eq, Ord, Read, Show)
 
