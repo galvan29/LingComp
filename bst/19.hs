@@ -4,4 +4,4 @@ data (Ord a) => ABST a = Void | Node Bal a (ABST a) (ABST a) deriving (Eq, Ord, 
 data ABST a = Void | Node Bal a (ABST a) (ABST a) deriving (Eq, Ord, Read, Show) 
 data Bal = Left | Bal | Right deriving (Eq, Ord, Read, Show)
 
-isBST :: (Ord a, Num a, Integral a, Eq a, Show a) => 
+isBST :: (Ord a, Num a, Integral a, Eq a, Show a) => ABST a -> Bool
