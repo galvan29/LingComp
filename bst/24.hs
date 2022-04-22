@@ -9,8 +9,11 @@ fold _ z Void = z
 fold f z (Node x l r) = f x (fold f z l) (fold f z r)
 
 main = do
-   print (bst2List 6 10 (Node 10 (Node 5 (Node 4 Void Void) (Node 6 Void (Node 7 Void Void))) (Node 15 Void Void)))
+   print (bst2List 5 10 (Node 10 (Node 5 (Node 4 Void Void) (Node 6 Void (Node 7 Void Void))) (Node 15 Void Void)))
 
 bst2List :: (Ord a, Num a, Eq a, Show a) => a -> a -> BST a -> [a]
 bst2List f d Void = []
-bst2List f d tree = (fold (\x y z -> y ++ if(x>f && x<d) then [x] else [] ++ z) [] tree)
+bst2List f d tree = (fold (\x y z -> y ++ agro ++ z) [] tree)
+ where {
+     agro = (if(x>f && x<d) then [x] else []);
+ }
