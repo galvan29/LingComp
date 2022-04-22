@@ -1,0 +1,1 @@
+{- 23. Si riscriva la funzione diff2next dell’Esercizio 12 usando opportunamente fold. -}
