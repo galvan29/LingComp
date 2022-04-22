@@ -10,18 +10,21 @@ data Color = Red | Black deriving (Eq, Ord, Read, Show)
 
 main = do
    print (isRBT (Node 10 Black (Node 5 Black Void Void) (Node 15 Black Void Void)))
-   print (isRBT (Node 10 Black (Node 6 Black (Node 3 Red Void Void) (Node 8 Red (Node 7 Black Void Void) (Node 9 Black Void Void))) (Node 15 Black (Node 12 Black Void Void) (Node 17 Black Void Void))))
+   print (isRBT (Node 10 Black (Node 6 Black (Node 3 Black Void Void) (Node 8 Red (Node 7 Black Void Void) (Node 9 Black Void Void))) (Node 15 Black (Node 12 Black Void Void) (Node 17 Black Void Void))))
    print (isRBT (Node 6 Black (Node 3 Black Void Void) (Node 8 Red (Node 7 Black Void Void) (Node 9 Black Void Void))))
-   print (checkRed Black (Node 10 Black (Node 5 Black Void Void) (Node 15 Black (Node 13 Red (Node 11 Black Void Void) (Node 14 Black Void Void)) (Node 17 Black Void Void))))
 
 isRBT :: (Eq a, Ord a, Num a) => RBT a -> Bool
 isRBT (Node x color l r) = rbheight (Node x color l r)
 
-
 rbheight :: (Eq a, Ord a, Num a) => RBT a -> Bool
 rbheight Void = True
-rbheight (Node x color l r) = if((conta 0 l)==(conta 0 r)) then ((rbheight l) && (rbheight r)) else False
-
+rbheight (Node x color l r) = if(f && u && h && p) then True else False
+ where {
+     f = (conta 0 l==conta 0 r);
+     u = (rbheight l) && (rbheight r);
+     h = (checkRed Black (Node x color l r));
+     p = (check2 (rbt2List (Node x color l r)));
+ }
 conta :: (Ord a, Num a) => a -> RBT a -> a
 conta v Void = (v+1)
 conta v (Node x color Void Void) = if(color==Black) then (v+1) else (v)
@@ -36,3 +39,12 @@ checkRed col (Node x color l r) = if(color==Black) then ye else if (color==Red &
  where {
      ye = ((checkRed color l) && (checkRed color r));
  }
+
+rbt2List :: (Ord a) => RBT a -> [a]
+rbt2List (Node x color l r) = (rbt2List l) ++ [x] ++ (rbt2List r)
+rbt2List Void = []
+
+check2 :: (Ord a) => [a] -> Bool
+check2 (x:[]) = True
+check2 (x:y:xs) = if(x<y) then check2 (y:xs) else False
+
