@@ -18,9 +18,10 @@ data Mat a = Mat {nexp :: Int, mat :: QT a} deriving ( Eq , Show )
 
 main = do
    let z = (Q (C 1) (C 0) (C 0) (C 1))
-   print (lowertriangular (Mat 2 (Q z (C 2) (C 0) z)))
+   let ab = (Q (C 0) (C 0) (C 1) (C 0))
+   print (lowertriangular (Mat 2 (Q z (C 2) ab z)))
 
-lowertriangular Mat{nexp=n,mat=(C x)} = x==0 || n==0
+lowertriangular Mat{nexp=n, mat=(C x)} = x==0 || n==0
 lowertriangular (Mat n (Q (C x1) (C x2) x3 (C x4))) = if n>0 then ((lowertriangular Mat{nexp=(n-1), mat=x3})) else False
 lowertriangular (Mat n (Q x1 x2 x3 x4)) = if n>0 then 
                 ((lowertriangular (Mat (n-1) x1)) && (lowertriangular (Mat (n-1) x3)) && (lowertriangular (Mat (n-1) x4))) else False
