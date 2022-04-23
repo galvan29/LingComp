@@ -13,7 +13,4 @@ main = do
 
 bst2List :: (Ord a, Num a, Eq a, Show a) => a -> a -> BST a -> [a]
 bst2List f d Void = []
-bst2List f d tree = (fold (\x y z -> y ++ agro ++ z) [] tree)
- where {
-     agro = (if(x>f && x<d) then [x] else []);
- }
+bst2List f d tree = (fold (\x y z -> y ++ (if(x>f && x<d) then [x] else []) ++ z) [] tree)
