@@ -7,6 +7,43 @@ main = do
    let mx = Mat 2 z {- (Q z (C 0) (C 0) z) -}
    print (sumMat z y)
 
+keep Mat{nexp=n, mat=(C x)} = x
+sumMat :: (Num a, Eq a, Show a) => QT a -> QT a -> QT a
+sumMat (C x) (C y) = C (keep (Mat 0 (C x)) + keep (Mat 0 (C y)))
+sumMat (C x) (Q y1 y2 y3 y4) = (Q (sumMat (C x) y1) (sumMat (C x) y2) (sumMat (C x) y3) (sumMat (C x) y4))
+sumMat (Q x1 x2 x3 x4) (C y) = (Q (sumMat x1 (C y)) (sumMat x2 (C y)) (sumMat x3 (C y)) (sumMat x4 (C y)))
+sumMat (Q x1 x2 x3 x4) (Q y1 y2 y3 y4) = (Q (sumMat x1 y1) (sumMat x2 y2) (sumMat x3 y3) (sumMat x4 y4))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {- Somma tra matrici 
 
 check :: (Num a, Eq a, Show a) => Mat a -> Mat a -> QT a
@@ -22,10 +59,3 @@ check (Mat n (Q x1 x2 x3 x4)) (Mat n1 (Q z1 z2 z3 z4)) = if (n>1) then (Q f1 f2 
       y4 = keep (Mat 0 x4) + keep (Mat 0 z4);
   }
 -}
-
-keep Mat{nexp=n, mat=(C x)} = x
-sumMat :: (Num a, Eq a, Show a) => QT a -> QT a -> QT a
-sumMat (C x) (C y) = C (keep (Mat 0 (C x)) + keep (Mat 0 (C y)))
-sumMat (C x) (Q y1 y2 y3 y4) = (Q (sumMat (C x) y1) (sumMat (C x) y2) (sumMat (C x) y3) (sumMat (C x) y4))
-sumMat (Q x1 x2 x3 x4) (C y) = (Q (sumMat x1 (C y)) (sumMat x2 (C y)) (sumMat x3 (C y)) (sumMat x4 (C y)))
-sumMat (Q x1 x2 x3 x4) (Q y1 y2 y3 y4) = (Q (sumMat x1 y1) (sumMat x2 y2) (sumMat x3 y3) (sumMat x4 y4))
