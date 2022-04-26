@@ -7,10 +7,10 @@ main = do
    let mx = Mat 2 z {- (Q z (C 0) (C 0) z) -}
    print (Mat 2 (sumMat z y))
 
-
 {- Ma qua devo usare le matrici vero? -}
 
 keep Mat{nexp=n, mat=(C x)} = x
+
 sumMat :: (Num a, Eq a, Show a) => QT a -> QT a -> QT a
 sumMat (C x) (C y) = C (keep (Mat 0 (C x)) + keep (Mat 0 (C y)))
 sumMat (C x) (Q y1 y2 y3 y4) = (Q (sumMat (C x) y1) (sumMat (C x) y2) (sumMat (C x) y3) (sumMat (C x) y4))
