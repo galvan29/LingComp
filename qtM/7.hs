@@ -5,12 +5,12 @@ main = do
    printzong 3 3 (Mat 1 (Q (C 1) (C 1) (C 1) (C 1))) (Q (C 1) (C 0) (C 1) (C 0)))
 
 
-zong :: (Num a, Eq a, Show a, Ord a) => a -> a -> Mat a -> QT a -> Mat a
-zong x y (Mat n (Q a b c d)) qt = Mat n (menMat (matMul n x (Q a b c d)) (matMul n y qt))
+f :: (Num a, Eq a, Show a, Ord a) => [a] -> Mat a -> a
+f array (Mat n (Q a b c d)) = 
 
 keep Mat{nexp=n, mat=(C x)} = x
-
-matMul :: (Num a, Eq a, Show a, Ord a) => Int -> a -> QT a -> QT a
+{- zipwith per moltiplicazione due vettori, split et pos e array, -}
+matMul :: (Num a, Eq a, Show a, Ord a) => Int -> [a] -> QT a -> QT a
 matMul n val (C x) = C (keep (Mat 0 (C x)) * val)
 matMul n val (Q x1 x2 x3 x4) = if (n==1) then (Q a b c d) else (Q e f g h)
  where{
