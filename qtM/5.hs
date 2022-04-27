@@ -10,7 +10,7 @@ main = do
    let z = (Q (C 1) (Q (C 0) (C 0) (C 0) (C 0)) (C 0) (C 1))
    let y = (Q (Q (C 0) (C 0) (C 0) (C 0)) (Q (C 0) (C 0) (C 0) (C 0)) (C 0) (C 1))
    let mx = Mat 2 z {- (Q z (C 0) (C 0) z) -}
-   print (Mat 2 (matMul 2 ww www))
+   print (Mat 2 (matMul 2 ww www)
 
 keep Mat{nexp=n, mat=(C x)} = x
  

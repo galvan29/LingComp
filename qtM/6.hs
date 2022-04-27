@@ -2,7 +2,7 @@ data QT a = C a | Q (QT a) (QT a) (QT a) (QT a) deriving (Eq, Show)
 data Mat a = Mat {nexp :: Int, mat :: QT a} deriving ( Eq , Show )
 
 main = do
-   printzong 3 3 (Mat 1 (Q (C 1) (C 1) (C 1) (C 1))) (Q (C 1) (C 0) (C 1) (C 0)))
+   print (zong 3 3 (Mat 1 (Q (C 1) (C 1) (C 1) (C 1))) (Q (C 1) (C 0) (C 1) (C 0)))
 
 
 zong :: (Num a, Eq a, Show a, Ord a) => a -> a -> Mat a -> QT a -> Mat a
