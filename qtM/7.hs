@@ -10,6 +10,17 @@ main = do
    print (convert 2 ww)
    print (getRow 2 3 (convert 2 ww))
  -}print (agro (createL (convert 2 ww)))
+   print (rowSum (Mat 2 ww))
+
+rowSum :: (Eq a, Show a, Num a) => Mat a -> [a]
+rowSum m = csum (mat m)
+    where
+        n = nexp m
+        csum (C c)       = take (2 ^ n) $ repeat (c * 2 ^ n)
+        csum (Q a b c d) = zipWith (+) ((colsum $ submat a) ++ (colsum $ submat b))
+                                       ((colsum $ submat c) ++ (colsum $ submat d))
+        submat q = Mat (n - 1) q
+
 
 f :: (Num a, Eq a, Show a, Ord a) => [a] -> Mat a -> a
 f array (Mat n (Q a b c d)) = 4
