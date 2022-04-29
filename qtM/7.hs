@@ -22,8 +22,8 @@ convert n (Q x1 x2 x3 x4) = if(n==1) then (Q x1 x2 x3 x4) else (Q (convert (n-1)
 createList :: (Num a, Eq a, Show a, Ord a) => QT a -> QT a -> QT a -> QT a -> [[QT a]]
 createList a b c d = [[a,b],[c,d]]
 
-createL :: (Num a, Eq a, Show a, Ord a) => QT a -> [[a]]
-createL (Q (C a) (C b) (C c) (C d)) = [a,b,c,d]
+createL :: (Num a, Eq a, Show a, Ord a) => QT a -> [a]
+createL (C a) = [a]
 createL (Q a b c d) = createL a ++ createL b ++ createL c ++ createL d
 
 
