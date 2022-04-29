@@ -13,10 +13,9 @@ main = do
    print (f [1,2,3,4] (Mat 2 (convert 2 w2)))
    
 f :: (Num a, Eq a, Show a, Ord a) => [a] -> Mat a -> [a]
-f array (Mat n (Q a b c d)) = zipWith (*) array (zipWith (*) (colsum (Mat n (Q a b c d))) array)
+f array (Mat n (Q a b c d)) = sumRow (zipWith (*) array (zipWith (*) (colsum (Mat n (Q a b c d))) array))
 
 
-sumRow
 
 colsum :: (Eq a, Show a, Num a) => Mat a -> [a]
 colsum m = csum (mat m)
