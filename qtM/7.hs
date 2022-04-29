@@ -27,7 +27,7 @@ createL (Q (C a) (C b) (C c) (C d)) = [[a,b,c,d]]
 createL (Q a b c d) = createL a ++ createL b ++ createL c ++ createL d
 
 agro :: (Num a, Eq a, Show a, Ord a) => QT a -> [[a]]
-agro (x:xs) = splitAt ((length l + 1) `div` 2) l
+agro l = splitAt ((length l + 1) `div` 2) l
 
 
 sumRow :: (Num a, Eq a, Show a, Ord a) => a -> [a] -> a
