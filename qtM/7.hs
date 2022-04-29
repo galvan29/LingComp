@@ -5,7 +5,7 @@ main = do
    let w2 = (Q (C 2) (C 2) (C 2) (C 2))
    let w0 = (Q (C 0) (C 0) (C 0) (C 0))
    let w1 = (Q (C 1) (C 1) (C 1) (C 1))
-   let ww = (Q w1 (C 0) w0 w2)
+   let ww = (Q (C 0) (C 0) (C 0) (C 0))
    print (f [1,2,3,5] (Mat 1 (Q (C 1) (C 1) (C 1) (C 1))))
    print (convert 2 ww)
    print (getRow 2 3 (convert 2 ww))
@@ -19,7 +19,7 @@ convert n (C x) = if(n==1) then (Q (C x) (C x) (C x) (C x)) else (Q (convert (n-
 convert n (Q x1 x2 x3 x4) = if(n==1) then (Q x1 x2 x3 x4) else (Q (convert (n-1) x1) (convert (n-1) x2) (convert (n-1) x3) (convert (n-1) x4))
 
 
-createList :: (Num a, Eq a, Show a, Ord a) => QT a -> [[a]]
+createList :: (Num a, Eq a, Show a, Ord a) => QT a -> [a]
 createList (C x) = [x]
 createList (Q a b c d) = (createList a ++ createList b)
 
