@@ -21,6 +21,8 @@ colsum m = csum (mat m)
                                        ((colsum $ submat b) ++ (colsum $ submat d))
         submat q = Mat (n - 1) q
 
+multi :: (Eq a, Show a, Num a) => [a] -> [a] -> [a]
+multi l r = zipWith (*) l r
 
 f :: (Num a, Eq a, Show a, Ord a) => [a] -> Mat a -> a
 f array (Mat n (Q a b c d)) = 4
