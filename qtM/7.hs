@@ -10,7 +10,7 @@ main = do
    print (convert 2 ww)
    print (getRow 2 3 (convert 2 ww))
  -}print (agro (createL (convert 2 ww)))
-   print (colsum (Mat 2 ww))
+   print (multi (colsum (Mat 2 ww)) [3,3,3,3])
 
 colsum :: (Eq a, Show a, Num a) => Mat a -> [a]
 colsum m = csum (mat m)
