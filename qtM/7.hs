@@ -23,7 +23,7 @@ createList a b c d = [[a,b],[c,d]]
 
 
 createL :: (Num a, Eq a, Show a, Ord a) => QT a -> [[a]]
-createL (C a) = [a]
+createL (C a) = [][a]]
 createL (Q a b c d) = createL a : createL b ++ createL c ++ createL d
 
 
