@@ -5,12 +5,12 @@ main = do
    let w2 = (Q (C 2) (C 2) (C 2) (C 2))
    let w0 = (Q (C 0) (C 0) (C 0) (C 0))
    let w1 = (Q (C 1) (C 1) (C 1) (C 1))
-   let ww = (Q (C 0) (C 1) (C 0) (C 0))
+   let ww = (Q w2 (C 1) (C 0) (C 0))
 {-   print (f [1,2,3,5] (Mat 1 (Q (C 1) (C 1) (C 1) (C 1))))
    print (convert 2 ww)
    print (getRow 2 3 (convert 2 ww))
  print (agro (createL (convert 2 ww))) -}
-   print (multi (colsum (Mat 2 ww)) [3,3,3,3])
+   print (zipWith (*) [1,2,3,4] multi (colsum (Mat 2 (convert 2 w2)) [3,3,3,3])
 
 colsum :: (Eq a, Show a, Num a) => Mat a -> [a]
 colsum m = csum (mat m)
@@ -23,6 +23,26 @@ colsum m = csum (mat m)
 
 multi :: (Eq a, Show a, Num a) => [a] -> [a] -> [a]
 multi l r = zipWith (*) l r
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 f :: (Num a, Eq a, Show a, Ord a) => [a] -> Mat a -> a
 f array (Mat n (Q a b c d)) = 4
