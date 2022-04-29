@@ -12,7 +12,7 @@ main = do
  print (agro (createL (convert 2 ww))) -}
    print (f [1,2,3,4] (Mat 2 (convert 2 w2)))
    
-f :: (Num a, Eq a, Show a, Ord a) => [a] -> Mat a -> a
+f :: (Num a, Eq a, Show a, Ord a) => [a] -> Mat a -> [a]
 f array mat = zipWith (*) array (multi (colsum mat array))
 
 colsum :: (Eq a, Show a, Num a) => Mat a -> [a]
