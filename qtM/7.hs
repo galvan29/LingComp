@@ -10,10 +10,10 @@ main = do
    print (convert 2 ww)
    print (getRow 2 3 (convert 2 ww))
  -}print (agro (createL (convert 2 ww)))
-   print (rowSum (Mat 2 ww))
+   print (colsum (Mat 2 ww))
 
-rowSum :: (Eq a, Show a, Num a) => Mat a -> [a]
-rowSum m = csum (mat m)
+colsum :: (Eq a, Show a, Num a) => Mat a -> [a]
+colsum m = csum (mat m)
     where
         n = nexp m
         csum (C c)       = take (2 ^ n) $ repeat (c * 2 ^ n)
