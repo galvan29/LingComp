@@ -15,6 +15,9 @@ main = do
 f :: (Num a, Eq a, Show a, Ord a) => [a] -> Mat a -> [a]
 f array (Mat n (Q a b c d)) = zipWith (*) array (zipWith (*) (colsum (Mat n (Q a b c d))) array)
 
+
+sumRow
+
 colsum :: (Eq a, Show a, Num a) => Mat a -> [a]
 colsum m = csum (mat m)
     where
@@ -43,9 +46,9 @@ agro :: (Num a, Eq a, Show a, Ord a) => [[a]] -> ([[a]],[[a]])
 agro l = splitAt ((length l + 1) `div` 2) l
 
 
-sumRow :: (Num a, Eq a, Show a, Ord a) => a -> [a] -> a
-sumRow s (x:[]) = s*x
-sumRow s (x:xs) = s*x+sumRow s (xs)   
+sumRow :: (Num a, Eq a, Show a, Ord a) => [a] -> a
+sumRow (x:[]) = x
+sumRow (x:xs) = x+sumRow (xs)   
 
 getRow :: (Num a, Eq a, Show a, Ord a, Integral a) => Int -> a -> QT a -> a
 getRow n s (C x) = s*x
