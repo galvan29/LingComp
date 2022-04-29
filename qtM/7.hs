@@ -11,6 +11,9 @@ main = do
    print (getRow 2 3 (convert 2 ww))
  print (agro (createL (convert 2 ww))) -}
    print (zipWith (*) [1,2,3,4] (multi (colsum (Mat 2 (convert 2 w2))) [3,3,3,3]))
+   
+f :: (Num a, Eq a, Show a, Ord a) => [a] -> Mat a -> a
+f array (Mat n (Q a b c d)) = zipWith (*) array (multi (colsum (Mat 2 (convert 2 w2))) array)
 
 colsum :: (Eq a, Show a, Num a) => Mat a -> [a]
 colsum m = csum (mat m)
@@ -23,29 +26,6 @@ colsum m = csum (mat m)
 
 multi :: (Eq a, Show a, Num a) => [a] -> [a] -> [a]
 multi l r = zipWith (*) l r
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-f :: (Num a, Eq a, Show a, Ord a) => [a] -> Mat a -> a
-f array (Mat n (Q a b c d)) = 4
 
 convert :: (Num a, Eq a, Show a, Ord a) => Int -> QT a -> QT a
 convert n (C x) = if(n==1) then (Q (C x) (C x) (C x) (C x)) else (Q (convert (n-1) (C x)) (convert (n-1) (C x)) (convert (n-1) (C x)) (convert (n-1) (C x)))
