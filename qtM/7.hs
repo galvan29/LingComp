@@ -26,7 +26,7 @@ createL :: (Num a, Eq a, Show a, Ord a) => QT a -> [[a]]
 createL (Q (C a) (C b) (C c) (C d)) = [[a,b,c,d]]
 createL (Q a b c d) = createL a ++ createL b ++ createL c ++ createL d
 
-agro :: (Num a, Eq a, Show a, Ord a) => [[a]] -> [[a]]
+agro :: (Num a, Eq a, Show a, Ord a) => [[a]] -> ([[a]],[[a]])
 agro l = splitAt ((length l + 1) `div` 2) l
 
 
