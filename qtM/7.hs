@@ -6,10 +6,10 @@ main = do
    let w0 = (Q (C 0) (C 0) (C 0) (C 0))
    let w1 = (Q (C 1) (C 1) (C 1) (C 1))
    let ww = (Q (C 0) (C 1) (C 0) (C 0))
-   print (f [1,2,3,5] (Mat 1 (Q (C 1) (C 1) (C 1) (C 1))))
+{-   print (f [1,2,3,5] (Mat 1 (Q (C 1) (C 1) (C 1) (C 1))))
    print (convert 2 ww)
    print (getRow 2 3 (convert 2 ww))
-   print (createL ww)
+   print (createL ww) -}
 
 f :: (Num a, Eq a, Show a, Ord a) => [a] -> Mat a -> a
 f array (Mat n (Q a b c d)) = 4
