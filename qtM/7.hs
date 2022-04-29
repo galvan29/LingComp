@@ -10,10 +10,10 @@ main = do
    print (convert 2 ww)
    print (getRow 2 3 (convert 2 ww))
  print (agro (createL (convert 2 ww))) -}
-   print (zipWith (*) [1,2,3,4] (multi (colsum (Mat 2 (convert 2 w2))) [3,3,3,3]))
+   print (f [1,2,3,4] (Mat 2 (convert 2 w2)))
    
 f :: (Num a, Eq a, Show a, Ord a) => [a] -> Mat a -> a
-f array (Mat n (Q a b c d)) = zipWith (*) array (multi (colsum (Mat 2 (convert 2 w2))) array)
+f array mat = zipWith (*) array (multi (colsum mat array)
 
 colsum :: (Eq a, Show a, Num a) => Mat a -> [a]
 colsum m = csum (mat m)
