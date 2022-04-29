@@ -19,7 +19,7 @@ convert n (C x) = if(n==1) then (Q (C x) (C x) (C x) (C x)) else (Q (convert (n-
 convert n (Q x1 x2 x3 x4) = if(n==1) then (Q x1 x2 x3 x4) else (Q (convert (n-1) x1) (convert (n-1) x2) (convert (n-1) x3) (convert (n-1) x4))
 
 
-createList :: (Num a, Eq a, Show a, Ord a) => QT a -> QT a -> QT a -> QT a -> [[a]]
+createList :: (Num a, Eq a, Show a, Ord a) => QT a -> QT a -> QT a -> QT a -> [[QT a]]
 createList a b c d = [[a,b],[c,d]]
 
 
