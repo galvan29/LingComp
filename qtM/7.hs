@@ -11,11 +11,14 @@ main = do
    print (getRow 2 3 (convert 2 ww))
  print (agro (createL (convert 2 ww))) -}
    print (f [1,2,3,4] (Mat 2 (convert 2 w2)))
+   print (sumRow [1,2,3,4])
    
 f :: (Num a, Eq a, Show a, Ord a) => [a] -> Mat a -> [a]
 f array (Mat n (Q a b c d)) =(zipWith (*) array (zipWith (*) (colsum (Mat n (Q a b c d))) array))
 
-
+sumRow :: (Num a, Eq a, Show a, Ord a) => [a] -> a
+sumRow (x:[]) = x
+sumRow (x:xs) = x+sumRow (xs)   
 
 colsum :: (Eq a, Show a, Num a) => Mat a -> [a]
 colsum m = csum (mat m)
