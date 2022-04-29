@@ -47,11 +47,6 @@ createL (Q a b c d) = createL a ++ createL b ++ createL c ++ createL d
 agro :: (Num a, Eq a, Show a, Ord a) => [[a]] -> ([[a]],[[a]])
 agro l = splitAt ((length l + 1) `div` 2) l
 
-
-sumRow :: (Num a, Eq a, Show a, Ord a) => [a] -> a
-sumRow (x:[]) = x
-sumRow (x:xs) = x+sumRow (xs)   
-
 getRow :: (Num a, Eq a, Show a, Ord a, Integral a) => Int -> a -> QT a -> a
 getRow n s (C x) = s*x
 getRow n s (Q a b c d) = (getRow (n-1) s a) + (getRow (n-1) s b) 
