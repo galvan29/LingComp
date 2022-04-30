@@ -7,7 +7,7 @@ main = do
    let w1 = (Q (C 1) (C 0) (C 0) (C 2))
    let ww = (Q w1 (Q (C 1) (C 0) (C 3) (C 4)) w0 (Q (C 3) (C 1) (C 1) (C 0)))
    let mat3 = Mat 2 ww
-   print (colsum mat3
+   print (colsum mat3)
 
 colsum :: (Eq a, Show a, Num a) => Mat a -> [a]
 colsum m = csum (mat m)
