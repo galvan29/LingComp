@@ -31,5 +31,5 @@ searchMinMax :: (Eq a, Num a, Show a, Ord a) => Mat a -> [a]
 searchMinMax mat = createCouple (searchMin mat) (searchMax mat)
 
 createCouple :: (Eq a, Show a, Num a, Ord a) => [a] -> [a] ->[a]
-createCouple (x:[]) (y:[]) = [x-y]
-createCouple (x:xs) (y:ys) = (x-y) : createCouple xs ys
+createCouple (x:[]) (y:[]) = [y-x]
+createCouple (x:xs) (y:ys) = (y-x) : createCouple xs ys
