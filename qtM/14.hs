@@ -19,6 +19,15 @@ transpose m = csum (mat m)
                                        ((transpose $ submat b) ++ (transpose $ submat d))
         submat q = Mat (n - 1) q
 
+notTranspose :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
+notTranspose m = csum (mat m)
+    where
+        n = nexp m
+        csum (C c)       = take (2 ^ n) $ repeat (c * 2 ^ n)
+        csum (Q a b c d) = ((notTranspose $ submat a) ++ (notTranspose $ submat b)) ++
+                                       ((notTranspose $ submat c) ++ (notTranspose $ submat d))
+        submat q = Mat (n - 1) q
+
 colAltSum :: (Eq a, Show a, Num a, Ord a) => [a] -> [a]
 colAltSum (x:[]) = [x]
 colAltSum (x:y:z:h:[]) = [(x-y+z-h)]
