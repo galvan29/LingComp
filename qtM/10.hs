@@ -16,5 +16,5 @@ rowSum m = csum (mat m)
         csum (Q a b c d) = zipWith (\x y -> if(x>y) then x else y) [1] [2]
         submat q = Mat (n - 1) q
 
-searchMinMax :: (Eq a, Num a, Show a, Ord a) => Mat a -> [(a,a)]
-{- searchMinMax -}
+{-  searchMinMax :: (Eq a, Num a, Show a, Ord a) => Mat a -> [(a,a)]
+searchMinMax -}
