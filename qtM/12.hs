@@ -5,7 +5,7 @@ main = do
    let w2 = (Q (C 2) (C 2) (C 2) (C 2))
    let w0 = (Q (C 0) (C 0) (C 0) (C 0))
    let w1 = (Q (C 1) (C 1) (C 1) (C 1))
-   let ww = (Q w1 (Q (C 1) (C 1) (C 2) (C 2)) w0 w2)
+   let ww = (Q w1 (Q (C 1) (C 1) (C 2) (C 2)) w0 (Q (C 1) (C 1) (C 2) (C 2)))
    let mat3 = Mat 2 ww
    print (altSum mat3)
 
