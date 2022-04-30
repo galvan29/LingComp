@@ -26,8 +26,8 @@ searchMin m = csum (mat m)
                                        ((searchMin $ submat b) ++ (searchMin $ submat d))
         submat q = Mat (n - 1) q
 
-{- searchMinMax :: (Eq a, Num a, Show a, Ord a) => Mat a -> [(a,a)]
-searchMinMax -}
+searchMinMax :: (Eq a, Num a, Show a, Ord a) => Mat a -> [(a,a)]
+searchMinMax mat = createCouple (searchMin mat) (searchMax mat)
 
 createCouple :: (Eq a, Show a, Num a, Ord a) => [a] -> [a] ->[(a,a)]
 createCouple (x:[]) (y:[]) = [(x,y)]
