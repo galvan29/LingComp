@@ -8,6 +8,7 @@ main = do
    let ww = (Q w1 (Q (C 1) (C 0) (C 3) (C 4)) w0 (Q (C 5) (C 1) (C 1) (C 0)))
    let mat3 = Mat 2 ww
    print (isSymmetric mat3)
+   print (check [1,2,4] [1,2,3])
    
 isSymmetric :: (Eq a, Show a, Num a, Ord a) => Mat a -> Bool
 isSymmetric mat = check (transpose mat) (notTranspose mat)
