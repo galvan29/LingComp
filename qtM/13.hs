@@ -18,7 +18,3 @@ transpose m = csum (mat m)
         csum (Q a b c d) = ((transpose $ submat a) ++ (transpose $ submat c)) 
         submat q = Mat (n - 1) q
         
-work :: (Eq a, Show a, Num a, Ord a) => [a] -> [a]
-work (x:[]) = [x]
-work (x:y:z:h:[]) = x
-work (x:y:z:h:xs) = (x-y+z-h) : work xs
