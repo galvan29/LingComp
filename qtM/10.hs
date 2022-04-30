@@ -22,7 +22,7 @@ searchMin m = csum (mat m)
     where
         n = nexp m
         csum (C c)       = take (2 ^ n) $ repeat (c * 2 ^ n)
-        csum (Q a b c d) = zipWith (\x y -> if(x>y) then x else y) ((searchMin $ submat a) ++ (searchMin $ submat c))
+        csum (Q a b c d) = zipWith (\x y -> if(x<y) then x else y) ((searchMin $ submat a) ++ (searchMin $ submat c))
                                        ((searchMin $ submat b) ++ (searchMin $ submat d))
         submat q = Mat (n - 1) q
 
