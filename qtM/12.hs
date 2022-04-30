@@ -7,7 +7,7 @@ main = do
    let w1 = (Q (C 1) (C 1) (C 1) (C 1))
    let ww = (Q w1 (Q (C 1) (C 1) (C 2) (C 2)) w0 (Q (C 1) (C 1) (C 2) (C 2)))
    let mat3 = Mat 2 ww
-   print (colAltSum mat3)
+   print (colAltSum (transpose mat3))
 
 
 transpose :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
