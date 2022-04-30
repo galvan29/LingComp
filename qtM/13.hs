@@ -15,5 +15,10 @@ transpose m = csum (mat m)
     where
         n = nexp m
         csum (C c)       = take (2 ^ n) $ repeat (c * 2 ^ n)
-        csum (Q a b c d) = zipWith (\x y -> x)  ((transpose $ submat a) ++ (transpose $ submat c))                                     ((transpose $ submat b) ++ (transpose $ submat d))
+        csum (Q a b c d) = ((transpose $ submat a) ++ (transpose $ submat c)) 
         submat q = Mat (n - 1) q
+        
+work :: (Eq a, Show a, Num a, Ord a) => [a] -> [a]
+work (x:[]) = [x]
+work (x:y:z:h:[]) = x
+work (x:y:z:h:xs) = (x-y+z-h) : work xs
