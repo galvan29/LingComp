@@ -30,3 +30,5 @@ searchMin m = csum (mat m)
 searchMinMax -}
 
 createCouple :: (Eq a, Show a, Num a, Ord a) => [a] -> [a] ->[(a,a)]
+createCouple (x:[]) (y:[]) = [(x,y)]
+createCouple (x:xs) (y:ys) = (x,y) : createCouple xs ys
