@@ -9,6 +9,7 @@ main = do
    let mat3 = Mat 2 ww
    print (isSymmetric mat3)
    print (check [1,2,4] [1,2,3])
+   print (transpose mat3)
    
 isSymmetric :: (Eq a, Show a, Num a, Ord a) => Mat a -> Bool
 isSymmetric mat = check (transpose mat) (notTranspose mat)
