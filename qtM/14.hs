@@ -14,7 +14,6 @@ main = do
 isSymmetric :: (Eq a, Show a, Num a, Ord a) => Mat a -> Bool
 isSymmetric mat = check (transpose mat) (notTranspose mat)
 
-
 transpose :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
 transpose m = csum (mat m)
     where
