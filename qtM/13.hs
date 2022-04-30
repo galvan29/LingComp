@@ -15,6 +15,6 @@ transpose m = csum (mat m)
     where
         n = nexp m
         csum (C c)       = take (2 ^ n) $ repeat (c * 2 ^ n)
-        csum (Q a b c d) = ((transpose $ submat a) ++ (transpose $ submat c)) 
+        csum (Q a b c d) = zipWith (\x y -> x)  ((transpose $ submat a) ++ (transpose $ submat c))                                     ((transpose $ submat b) ++ (transpose $ submat d))
         submat q = Mat (n - 1) q
         
