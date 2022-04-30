@@ -5,7 +5,7 @@ main = do
    let w2 = (Q (C 1) (C 3) (C 1) (C 1))
    let w0 = (Q (C 1) (C 3) (C 0) (C 4))
    let w1 = (Q (C 1) (C 0) (C 0) (C 2))
-   let ww = (Q w1 (Q (C 1) (C 0) (C 3) (C 4)) w0 (Q (C 3) (C 1) (C 1) (C 0)))
+   let ww = (Q w1 (Q (C 1) (C 0) (C 3) (C 4)) w0 (Q (C 5) (C 1) (C 1) (C 0)))
    let mat3 = Mat 2 ww
    print (isSymmetric mat3)
    
