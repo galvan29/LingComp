@@ -28,7 +28,7 @@ notTranspose m = csum (mat m)
                                        ((notTranspose $ submat c) ++ (notTranspose $ submat d))
         submat q = Mat (n - 1) q
 
-colAltSum :: (Eq a, Show a, Num a, Ord a) => [a] -> [a]
+colAltSum :: (Eq a, Show a, Num a, Ord a) => [a] -> [a] -> [a]
 colAltSum (x:[]) = [x]
 colAltSum (x:y:z:h:[]) = [(x-y+z-h)]
 colAltSum (x:y:z:h:xs) = (x-y+z-h) : colAltSum xs
