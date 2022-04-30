@@ -6,7 +6,8 @@ main = do
    let w0 = (Q (C 0) (C 0) (C 0) (C 0))
    let w1 = (Q (C 1) (C 1) (C 1) (C 1))
    let ww = (Q w1 (C 0) w0 w2)
-   print (createCouple (searchMin (Mat 2 ww)) (searchMax (Mat 2 ww)))
+   let mat3 = Mat 2 ww
+   print (searchMinMax mat3)
 
 searchMax :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
 searchMax m = csum (mat m)
