@@ -33,4 +33,4 @@ notTranspose m = csum (mat m)
 
 check :: (Eq a, Show a, Num a, Ord a) => [a] -> [a] -> Bool
 check (x:[]) (y:[]) = if(x==y) then True else False
-check (x:xs) (y:ys) = if(x==y) then colAltSum xs ys else False
+check (x:xs) (y:ys) = if(x==y) then check xs ys else False
