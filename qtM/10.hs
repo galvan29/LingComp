@@ -8,7 +8,7 @@ main = do
    let ww = (Q w1 (C 0) w0 w2)
    print (rowSum (Mat 2 ww))
 
-rowSum :: (Eq a, Show a, Num a) => Mat a -> [a]
+rowSum :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
 rowSum m = csum (mat m)
     where
         n = nexp m
