@@ -20,3 +20,5 @@ transpose m = csum (mat m)
         submat q = Mat (n - 1) q
 
 colAltSum :: (Eq a, Show a, Num a, Ord a) => [a] -> [a]
+colAltSum (x:[]) = [x]
+colAltSum (x:y:z:h:xs) = (x-y+z-h) : colAltSum xs
