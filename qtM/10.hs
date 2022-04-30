@@ -28,3 +28,5 @@ searchMin m = csum (mat m)
 
 {- searchMinMax :: (Eq a, Num a, Show a, Ord a) => Mat a -> [(a,a)]
 searchMinMax -}
+
+createCouple :: (Eq a, Show a, Num a, Ord a) => [a] -> [a] ->[(a,a)]
