@@ -21,4 +21,5 @@ transpose m = csum (mat m)
 
 colAltSum :: (Eq a, Show a, Num a, Ord a) => [a] -> [a]
 colAltSum (x:[]) = [x]
+colAltSum (x:y:z:h:[]) = (x-y+z-h)
 colAltSum (x:y:z:h:xs) = (x-y+z-h) : colAltSum xs
