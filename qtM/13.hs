@@ -11,5 +11,5 @@ main = do
 
 transpose :: (Eq a, Show a, Num a, Ord a) => Mat a -> Mat a
 transpose (Mat n (C x)) = Mat n (C x)
-transpose (Mat n (Q a b c d)) = Mat n (transpose (Mat (n-1) a)) (transpose (Mat (n-1) b)) (transpose (Mat (n-1) c)) (transpose (Mat (n-1) d))
+transpose (Mat n (Q a b c d)) = Mat n (Q (transpose (Mat (n-1) a)) (transpose (Mat (n-1) b)) (transpose (Mat (n-1) c)) (transpose (Mat (n-1) d)))
         
