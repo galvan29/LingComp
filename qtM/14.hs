@@ -6,14 +6,18 @@ main = do
    let w0 = (Q (C 1) (C 3) (C 0) (C 4))
    let w1 = (Q (C 1) (C 0) (C 0) (C 2))
    let ww = (Q w1 (Q (C 1) (C 0) (C 3) (C 4)) w0 (Q (C 3) (C 1) (C 1) (C 0)))
+   let ww2 = (Q w1 (Q (C 1) (C 0) (C 3) (C 7)) w0 (Q (C 3) (C 1) (C 1) (C 1)))
    let mat3 = Mat 2 ww
-   print (isSymmetric mat3)
-   print (check [1,2,4] [1,2,3])
-   print (notTranspose mat3)
+   print (isSymmetric ww2)
    
-isSymmetric :: (Eq a, Show a, Num a, Ord a) => Mat a -> Bool
-isSymmetric mat = check (transpose mat) (notTranspose mat)
+isSymmetric :: (Eq a, Show a, Num a, Ord a) => QT a -> Bool
+isSymmetric ww = check (transpose (Mat 2 ww)) (transpose (Mat 2 (transposeR ww)))
 
+transposeR :: (Eq a, Show a, Num a, Ord a) => QT a -> QT a
+transposeR (C x) = (C x)
+transposeR (Q a b c d) = (Q (transposeR a) (transposeR c) (transposeR b) (transposeR d))
+        
+        
 transpose :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
 transpose m = csum (mat m)
     where
@@ -21,15 +25,6 @@ transpose m = csum (mat m)
         csum (C c)       = take (2 ^ n) $ repeat (c * 2 ^ n)
         csum (Q a b c d) = ((transpose $ submat a) ++ (transpose $ submat c)) ++
                                        ((transpose $ submat b) ++ (transpose $ submat d))
-        submat q = Mat (n - 1) q
-
-notTranspose :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
-notTranspose m = csum (mat m)
-    where
-        n = nexp m
-        csum (C c)       = take (2 ^ n) $ repeat (c * 2 ^ n)
-        csum (Q a b c d) = ((notTranspose $ submat a) ++ (notTranspose $ submat b)) ++
-                                       ((notTranspose $ submat c) ++ (notTranspose $ submat d))
         submat q = Mat (n - 1) q
 
 check :: (Eq a, Show a, Num a, Ord a) => [a] -> [a] -> Bool
