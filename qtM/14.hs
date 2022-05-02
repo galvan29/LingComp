@@ -35,5 +35,5 @@ check (x:xs) (y:ys) = if(x==y) then check xs ys else False
 
 
 altSum :: (Num a) => [a] -> a
-altsum (x:[]) = x
-altsum (x:y:xs) = x - y + altSum xs
+altSum (x:[]) = x
+altSum (x:y:xs) = x - y + altSum xs
