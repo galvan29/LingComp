@@ -9,6 +9,7 @@ main = do
    let ww2 = (Q w1 (Q (C 1) (C 0) (C 3) (C 7)) w0 (Q (C 3) (C 1) (C 1) (C 1)))
    let mat3 = Mat 2 ww
    print (isSymmetric ww2)
+   print (altSum [1,2,3,4,5])
    
 isSymmetric :: (Eq a, Show a, Num a, Ord a) => QT a -> Bool
 isSymmetric ww = check (transpose (Mat 2 ww)) (transpose (Mat 2 (transposeR ww)))
@@ -30,3 +31,9 @@ transpose m = csum (mat m)
 check :: (Eq a, Show a, Num a, Ord a) => [a] -> [a] -> Bool
 check (x:[]) (y:[]) = if(x==y) then True else False
 check (x:xs) (y:ys) = if(x==y) then check xs ys else False
+
+
+
+altSum :: (Num a) => [a] -> a
+altsum (x:[]) = x
+altsum (x:y:xs) = x - y + altSum xs
