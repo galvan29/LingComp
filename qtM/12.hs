@@ -10,16 +10,13 @@ main = do
    print (colAltSum mat3)
 
 colAltSum :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
-colAltSum (Mat n (Q a b c d))= transpose (convert  (Q a b c d))
+colAltSum (Mat n (Q a b c d))= work (convert  (Q a b c d))
 
-transpose :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
-transpose m = csum (mat m)
-    where
-        n = nexp m
-        csum (C c)       = take (2 ^ n) $ repeat (c * 2 ^ n)
-        csum (Q a b c d) = zipWith (\x y -> if(x<y) then x else y) ((searchMin $ submat a) ++ (searchMin $ submat b))
-                                       ((searchMin $ submat c) ++ (searchMin $ submat d))
-        submat q = Mat (n - 1) q
+work :: (Eq a, Show a, Num a, Ord a) => QT a -> Int -> [a]
+work (C x) = [x]
+work (Q a b c d) n = if(n==1) then zipWith (-) [a,b] [c,d] else zipWith (+) ((work $ submat a) ++ (work $ submat b)) ((work $ submat c) ++ (work $ submat d))
+ where
+   submat q = Mat (n - 1) q
 
 
 convert :: (Num a, Eq a, Show a, Ord a) => Int -> QT a -> QT a
