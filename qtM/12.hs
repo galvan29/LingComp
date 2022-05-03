@@ -7,12 +7,10 @@ main = do
    let w1 = (Q (C 1) (C 0) (C 0) (C 2))
    let ww = (Q w1 (Q (C 1) (C 0) (C 3) (C 7)) w0 (Q (C 3) (C 1) (C 1) (C 0)))
    let mat3 = Mat 2 ww
-   print (colAltSum (transpose mat3))
+   print (colAltSum mat3)
 
 colAltSum :: (Eq a, Show a, Num a, Ord a) => [a] -> [a]
-colAltSum (x:[]) = [x]
-colAltSum (x:y:z:h:[]) = [(x-y+z-h)]
-colAltSum (x:y:z:h:xs) = (x-y+z-h) : colAltSum xs
+colAltSum mat3 = transpose (convert mat3)
 
 transpose :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
 transpose m = csum (mat m)
