@@ -9,7 +9,7 @@ main = do
    let mat3 = Mat 2 ww
    print (colAltSum mat3)
 
-colAltSum :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
+colAltSum :: (Eq a, Show a, Num a, Ord a, Integral a) => Mat a -> [a]
 colAltSum (Mat n (Q a b c d))= work n (convert n (Q a b c d))
 
 work :: (Eq a, Show a, Num a, Ord a, Integral a) => Int -> QT a -> [a]
