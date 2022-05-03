@@ -9,17 +9,21 @@ main = do
    let mat3 = Mat 2 ww
    print (colAltSum (transpose mat3))
 
+colAltSum :: (Eq a, Show a, Num a, Ord a) => [a] -> [a]
+colAltSum (x:[]) = [x]
+colAltSum (x:y:z:h:[]) = [(x-y+z-h)]
+colAltSum (x:y:z:h:xs) = (x-y+z-h) : colAltSum xs
 
 transpose :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
 transpose m = csum (mat m)
     where
         n = nexp m
         csum (C c)       = take (2 ^ n) $ repeat (c * 2 ^ n)
-        csum (Q a b c d) = ((transpose $ submat a) ++ (transpose $ submat c)) ++
-                                       ((transpose $ submat b) ++ (transpose $ submat d))
+        csum (Q a b c d) = zipWith (\x y -> if(x<y) then x else y) ((searchMin $ submat a) ++ (searchMin $ submat b))
+                                       ((searchMin $ submat c) ++ (searchMin $ submat d))
         submat q = Mat (n - 1) q
 
-colAltSum :: (Eq a, Show a, Num a, Ord a) => [a] -> [a]
-colAltSum (x:[]) = [x]
-colAltSum (x:y:z:h:[]) = [(x-y+z-h)]
-colAltSum (x:y:z:h:xs) = (x-y+z-h) : colAltSum xs
+
+convert :: (Num a, Eq a, Show a, Ord a) => Int -> QT a -> QT a
+convert n (C x) = if(n==1) then (Q (C x) (C x) (C x) (C x)) else (Q (convert (n-1) (C x)) (convert (n-1) (C x)) (convert (n-1) (C x)) (convert (n-1) (C x)))
+convert n (Q x1 x2 x3 x4) = if(n==1) then (Q x1 x2 x3 x4) else (Q (convert (n-1) x1) (convert (n-1) x2) (convert (n-1) x3) (convert (n-1) x4))
