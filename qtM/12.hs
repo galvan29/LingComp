@@ -9,12 +9,15 @@ main = do
    let mat3 = Mat 2 ww
    print (colAltSum mat3)
 
-colAltSum :: (Eq a, Show a, Num a, Ord a) => Mat a -> [QT a]
+colAltSum :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
 colAltSum (Mat n (Q a b c d))= work n (convert n (Q a b c d))
 
 work :: (Eq a, Show a, Num a, Ord a, Integral a) => Int -> QT a -> [QT a]
 work n (C x)= [C x]
 work n (Q a b c d) = if(n==1) then zipWith (-) [a,b] [c,d] else zipWith (+) ((work (n-1) a) ++ (work (n-1) b)) ((work (n-1) c) ++ (work (n-1) d))
+
+prendi :: QT a -> a
+prendi (C x) = x
 
 
 convert :: (Num a, Eq a, Show a, Ord a) => Int -> QT a -> QT a
