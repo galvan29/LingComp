@@ -14,7 +14,7 @@ colAltSum (Mat n (Q a b c d))= work (convert  (Q a b c d))
 
 work :: (Eq a, Show a, Num a, Ord a) => QT a -> Int -> [a]
 work (C x) = [x]
-work (Q a b c d) n = if(n==1) then zipWith (-) [a,b] [c,d] else zipWith (+) ((work $ submat a) ++ (work $ submat b)) ((work $ submat c) ++ (work $ submat d))
+work (Q a b c d) n = if(n==1) then zipWith (-) [a,b] [c,d] else zipWith (+) ((work a) ++ (work b)) ((work c) ++ (work d))
  where
    submat q = Mat (n - 1) q
 
