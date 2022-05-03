@@ -16,8 +16,8 @@ work :: (Eq a, Show a, Num a, Ord a, Integral a) => Int -> QT a -> [a]
 work n (C x)= [C x]
 work n (Q a b c d) = if(n==1) then zipWith (-) [a,b] [c,d] else zipWith (+) ((work (n-1) a) ++ (work (n-1) b)) ((work (n-1) c) ++ (work (n-1) d))
 
-prendi :: QT a -> a
-prendi (C x) = x
+p :: QT a -> a
+p (C x) = x
 
 
 convert :: (Num a, Eq a, Show a, Ord a) => Int -> QT a -> QT a
