@@ -13,7 +13,7 @@ colAltSum :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
 colAltSum (Mat n (Q a b c d))= work n (convert n (Q a b c d))
 
 work :: (Eq a, Show a, Num a, Ord a) => QT a -> Int -> [a]
-work (C x) = [x]
+work (C x) n = [x]
 work (Q a b c d) n = if(n==1) then zipWith (-) [a,b] [c,d] else zipWith (+) ((work (n-1) a) ++ (work (n-1) b)) ((work (n-1) c) ++ (work (n-1) d))
 
 
