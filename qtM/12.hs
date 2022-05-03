@@ -9,8 +9,8 @@ main = do
    let mat3 = Mat 2 ww
    print (colAltSum mat3)
 
-colAltSum :: (Eq a, Show a, Num a, Ord a) => [a] -> [a]
-colAltSum mat3 = transpose (convert mat3)
+colAltSum :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
+colAltSum (Mat n (Q a b c d))= transpose (convert  (Q a b c d))
 
 transpose :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
 transpose m = csum (mat m)
