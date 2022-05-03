@@ -12,9 +12,9 @@ main = do
 colAltSum :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
 colAltSum (Mat n (Q a b c d))= work n (convert n (Q a b c d))
 
-work :: (Eq a, Show a, Num a, Ord a) => QT a -> Int -> [a]
-work (C x) n = [x]
-work (Q a b c d) n = if(n==1) then zipWith (-) [a,b] [c,d] else zipWith (+) ((work (n-1) a) ++ (work (n-1) b)) ((work (n-1) c) ++ (work (n-1) d))
+work :: (Eq a, Show a, Num a, Ord a) => Int -> QT a -> [a]
+work n (C x)= [x]
+work n (Q a b c d) = if(n==1) then zipWith (-) [a,b] [c,d] else zipWith (+) ((work (n-1) a) ++ (work (n-1) b)) ((work (n-1) c) ++ (work (n-1) d))
 
 
 convert :: (Num a, Eq a, Show a, Ord a) => Int -> QT a -> QT a
