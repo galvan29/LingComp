@@ -10,7 +10,7 @@ main = do
    print (colAltSum mat3)
 
 colAltSum :: (Eq a, Show a, Num a, Ord a) => Mat a -> [a]
-colAltSum (Mat n (Q a b c d))= work (convert n (Q a b c d))
+colAltSum (Mat n (Q a b c d))= work n (convert n (Q a b c d))
 
 work :: (Eq a, Show a, Num a, Ord a) => QT a -> Int -> [a]
 work (C x) = [x]
