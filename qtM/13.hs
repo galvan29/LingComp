@@ -11,5 +11,5 @@ main = do
 
 transpose :: (Eq a, Show a, Num a, Ord a) => QT a -> QT a
 transpose (C x) = (C x)
-transpose (Q a b c d) = (Q (transpose a) (transpose b) (transpose c) (transpose d))
+transpose (Q a b c d) = (Q (transpose a) (transpose c) (transpose b) (transpose d))
         
