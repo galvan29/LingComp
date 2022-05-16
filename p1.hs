@@ -21,13 +21,7 @@ uLZero (Mat n (Q (C x1) x2 x3 (C x4))) = if n>0 then ((uLZero Mat{nexp=(n-1), ma
 uLZero (Mat n (Q x1 x2 x3 x4)) = if n>0 then 
                 ((uLZero (Mat (n-1) x2)) && (uLZero (Mat (n-1) x3))) else False
 
-
 dToList :: (Eq a, Show a, Num a) => Mat a -> [a]
 dToList Mat{nexp=n, mat=(C x)} = [x]
 dToList (Mat n (Q x1 (C x2) (C x3) x4)) = ((dToList Mat{nexp=(n-1), mat=x1}) ++ (dToList Mat{nexp=(n-1), mat=x4}))
 dToList (Mat n (Q x1 x2 x3 x4)) = ((dToList (Mat (n-1) x1)) ++ (dToList (Mat (n-1) x4)))
-                
-
-
-
-{- mettere tipo sopra -}
