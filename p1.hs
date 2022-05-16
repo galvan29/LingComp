@@ -5,8 +5,8 @@ main = do
    let z = (Q (C 1) (C 0) (C 0) (C 1))
    print (diagonal (Mat 2 (Q z (C 0) (C 0) z)))
 
-diagonal :: (Eq a, Show a, Num a) => Mat a -> [a]
-diagonal mat = if (dNZero mat && uLZero mat) then (dToList mat) else []
+diagonal :: (Eq a, Show a, Num a) => Mat a -> Maybe [a]
+diagonal mat = if (dNZero mat && uLZero mat) then Just (dToList mat) else Nothing
 
 dNZero :: (Eq a, Show a, Num a) => Mat a -> Bool
 dNZero Mat{nexp=n, mat=(C x)} = x/=0 || n==0
