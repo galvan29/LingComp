@@ -5,6 +5,10 @@ main = do
    let z = (Q (C 1) (C 0) (C 0) (C 1))
    print (diagonal (Mat 2 (Q z (C 0) (C 0) z)))
    print (diagonal (Mat 2 (Q z (C 0) (C 1) z)))
+   print (diagonal (Mat 2 (Q (Q (C 1) (C 0) (C 0) (C 1)) (C 0) (C 0) (Q (C 1) (C 0) (C 0) (C 1)))))
+   print (diagonal (Mat 2 (Q (C 0) (C 0) (C 1) (C 0))))
+   print (diagonal (Mat 1 (Q (C 1) (C 0) (C 0) (C 1))))
+
 
 diagonal :: (Eq a, Show a, Num a) => Mat a -> Maybe [a]
 diagonal mat = if (dNZero mat && uLZero mat) then Just (dToList mat) else Nothing
