@@ -8,5 +8,5 @@ buildNSimplify a b c d = (Q a b c d)
 
 
 fu :: (Eq a, Show a) => Int -> QT a -> QT a
-fu n (C x) = if(n>0) then (fu (n-1) (QT (C x) (C x) (C x) (C x))) else (C 1)
-fu n (QT a b c d) = if(n>0) then (QT (fu (n-1) a) (fu (n-1) b) c d) else (QT (C 1) (C 1) c d)
+fu n (C x) = if(n>0) then (fu (n-1) (Q (C x) (C x) (C x) (C x))) else (C 1)
+fu n (Q a b c d) = if(n>0) then (Q (fu (n-1) a) (fu (n-1) b) c d) else (Q (C 1) (C 1) c d)
