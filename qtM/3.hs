@@ -4,6 +4,7 @@ data Mat a = Mat {nexp :: Int, mat :: QT a} deriving ( Eq , Show )
 main = do
    let z = (Q (C 1) (C 0) (C 0) (C 1))
    print (diagonal (Mat 2 (Q z (C 0) (C 0) z)))
+   print (Just [1] ++ Just [2])
 
 diagonal (Mat n (Q x1 x2 x3 x4)) = if(diagonal3 (Mat n (Q x1 x2 x3 x4))) && (diagonal2 (Mat n (Q x1 x2 x3 x4))) then True else False
 
