@@ -1,11 +1,6 @@
 data QT a = C a | Q (QT a) (QT a) (QT a) (QT a)
 data Mat a = Mat {nexp :: Int, mat :: QT a}
 
-main = do
-   let z = (Q (C 1) (C 0) (C 0) (C 1))
-   print (diagonal (Mat 2 (Q z (C 0) (C 0) z)))
-   print (diagonal (Mat 2 (Q z z z z)))
-   
 diagonal :: (Eq a, Num a) => Mat a -> Maybe [a]
 diagonal mat = if (dNZero mat) then Just (dToList mat) else Nothing
 
