@@ -14,7 +14,7 @@ dNZero Mat{nexp=n, mat=(C x)} = x/=0 || n==0
 dNZero (Mat n (Q x1 x2 x3 x4)) = if (n>0) then ((dNZero (Mat (n-1) x1)) && (dNZero (Mat (n-1) x4)) && (uLZero (Mat (n-1) x2)) && (uLZero (Mat (n-1) x3))) else False
 
 uLZero :: (Eq a, Num a) =>  Mat a -> Bool
-uLZero Mat{nexp=n, mat=(C x)} = x==0 || n==0
+uLZero (Mat n (C x)) = if(x==0) then True else False
 uLZero (Mat n (Q x1 x2 x3 x4)) = if (n>0) then ((uLZero (Mat (n-1) x1)) && (uLZero (Mat (n-1) x2)) && (uLZero (Mat (n-1) x3)) && (uLZero (Mat (n-1) x4))) else False
 
 dToList :: Mat a -> [a]
